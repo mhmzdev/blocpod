@@ -8,6 +8,7 @@ class _Body extends StatelessWidget {
     final screenState = _ScreenState.s(context, true);
 
     return Screen(
+      bottomBar: true,
       keyboardHandler: true,
       formKey: screenState.formKey,
       initialFormValue: _FormData.initialValues(),

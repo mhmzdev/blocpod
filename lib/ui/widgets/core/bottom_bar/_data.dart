@@ -4,7 +4,7 @@ List<_ItemModel> get _items => [
       _ItemModel(
         active: Icon(
           Icons.home,
-          color: AppTheme.pink,
+          color: AppTheme.blue,
           size: 10.un(),
         ),
         inActive: Icon(
@@ -18,7 +18,7 @@ List<_ItemModel> get _items => [
       _ItemModel(
         active: Icon(
           Icons.book,
-          color: AppTheme.pink,
+          color: AppTheme.blue,
           size: 10.un(),
         ),
         inActive: Icon(
@@ -32,7 +32,7 @@ List<_ItemModel> get _items => [
       _ItemModel(
         active: Icon(
           Icons.search,
-          color: AppTheme.pink,
+          color: AppTheme.blue,
           size: 10.un(),
         ),
         inActive: Icon(
@@ -41,12 +41,12 @@ List<_ItemModel> get _items => [
           size: 10.un(),
         ),
         label: 'Search',
-        path: AppRoutes.favorite,
+        path: AppRoutes.search,
       ),
       _ItemModel(
         active: Icon(
           Icons.person,
-          color: AppTheme.pink,
+          color: AppTheme.blue,
           size: 10.un(),
         ),
         inActive: Icon(
@@ -55,6 +55,6 @@ List<_ItemModel> get _items => [
           size: 10.un(),
         ),
         label: 'Profile',
-        path: AppRoutes.home,
+        path: AppRoutes.profile,
       ),
     ];

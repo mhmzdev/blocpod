@@ -20,7 +20,7 @@ class _BottomBarIcon extends StatelessWidget {
         Space.y.t10,
         Text(
           item.label,
-          style: AppText.s1 + (isSelected ? AppTheme.pink : AppTheme.grey),
+          style: AppText.s1 + (isSelected ? AppTheme.blue : AppTheme.grey),
         )
       ],
     );

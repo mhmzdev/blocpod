@@ -5,17 +5,18 @@ class _Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Screen(
+    return Screen(
       keyboardHandler: true,
+      bottomBar: true,
       child: SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            //
-          ],
+          child: Center(
+        child: ElevatedButton(
+          onPressed: () => AppRoutes.login.pushReplace(context),
+          child: const Text(
+            'Login',
+          ),
         ),
-      ),
+      )),
     );
   }
 }

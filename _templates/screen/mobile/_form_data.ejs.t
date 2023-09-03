@@ -5,12 +5,12 @@ part of '../<%= h.changeCase.snake(name) %>.dart';
 
 class _FormData {
   static Map<String, dynamic> initialValues() {
-    if (AppFlavor.isProd) {
-      return {};
+    if (kDebugMode) {
+      return {
+        _FormKeys.email: "value",
+      };
     }
 
-    return {
-      _FormKeys.email: "value",
-    };
+    return {};
   }
 }

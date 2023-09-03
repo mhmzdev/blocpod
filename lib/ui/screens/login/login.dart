@@ -1,4 +1,5 @@
 import 'package:bloced_archi/configs/configs.dart';
+import 'package:bloced_archi/router/routes.dart';
 import 'package:bloced_archi/ui/widgets/core/screen/screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
