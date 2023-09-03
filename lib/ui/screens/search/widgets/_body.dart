@@ -12,12 +12,14 @@ class _Body extends StatelessWidget {
       keyboardHandler: true,
       formKey: screenState.formKey,
       initialFormValue: _FormData.initialValues(),
-      child: const SafeArea(
+      child: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            //
+            FormBuilderTextField(
+              name: _FormKeys.searchField,
+            )
           ],
         ),
       ),
