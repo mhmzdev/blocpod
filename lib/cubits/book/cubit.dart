@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bloced_archi/services/api.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,10 +19,10 @@ class BookCubit extends Cubit<BookState> {
 
   final repo = _BookRepository();
 
-  Future<void> fetch() async {
+  Future<void> fetch({String? genreType}) async {
     emit(const BookFetchLoading());
     try {
-      final data = await repo.fetch();
+      final data = await repo.fetch(genreType: genreType ?? 'computer');
 
       emit(BookFetchSuccess(data: data));
     } catch (e) {

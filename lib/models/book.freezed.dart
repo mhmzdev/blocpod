@@ -20,7 +20,10 @@ Book _$BookFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Book {
-  String get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  List<String> get authors => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  ImageLinks? get imageLinks => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -32,7 +35,13 @@ abstract class $BookCopyWith<$Res> {
   factory $BookCopyWith(Book value, $Res Function(Book) then) =
       _$BookCopyWithImpl<$Res, Book>;
   @useResult
-  $Res call({String id});
+  $Res call(
+      {String title,
+      List<String> authors,
+      String? description,
+      ImageLinks? imageLinks});
+
+  $ImageLinksCopyWith<$Res>? get imageLinks;
 }
 
 /// @nodoc
@@ -48,14 +57,41 @@ class _$BookCopyWithImpl<$Res, $Val extends Book>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? title = null,
+    Object? authors = null,
+    Object? description = freezed,
+    Object? imageLinks = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
+      authors: null == authors
+          ? _value.authors
+          : authors // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      imageLinks: freezed == imageLinks
+          ? _value.imageLinks
+          : imageLinks // ignore: cast_nullable_to_non_nullable
+              as ImageLinks?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ImageLinksCopyWith<$Res>? get imageLinks {
+    if (_value.imageLinks == null) {
+      return null;
+    }
+
+    return $ImageLinksCopyWith<$Res>(_value.imageLinks!, (value) {
+      return _then(_value.copyWith(imageLinks: value) as $Val);
+    });
   }
 }
 
@@ -65,7 +101,14 @@ abstract class _$$_BookCopyWith<$Res> implements $BookCopyWith<$Res> {
       __$$_BookCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id});
+  $Res call(
+      {String title,
+      List<String> authors,
+      String? description,
+      ImageLinks? imageLinks});
+
+  @override
+  $ImageLinksCopyWith<$Res>? get imageLinks;
 }
 
 /// @nodoc
@@ -77,13 +120,28 @@ class __$$_BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res, _$_Book>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? title = null,
+    Object? authors = null,
+    Object? description = freezed,
+    Object? imageLinks = freezed,
   }) {
     return _then(_$_Book(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
+      authors: null == authors
+          ? _value._authors
+          : authors // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      imageLinks: freezed == imageLinks
+          ? _value.imageLinks
+          : imageLinks // ignore: cast_nullable_to_non_nullable
+              as ImageLinks?,
     ));
   }
 }
@@ -91,16 +149,33 @@ class __$$_BookCopyWithImpl<$Res> extends _$BookCopyWithImpl<$Res, _$_Book>
 /// @nodoc
 @JsonSerializable()
 class _$_Book with DiagnosticableTreeMixin implements _Book {
-  const _$_Book({required this.id});
+  const _$_Book(
+      {required this.title,
+      required final List<String> authors,
+      this.description,
+      this.imageLinks})
+      : _authors = authors;
 
   factory _$_Book.fromJson(Map<String, dynamic> json) => _$$_BookFromJson(json);
 
   @override
-  final String id;
+  final String title;
+  final List<String> _authors;
+  @override
+  List<String> get authors {
+    if (_authors is EqualUnmodifiableListView) return _authors;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_authors);
+  }
+
+  @override
+  final String? description;
+  @override
+  final ImageLinks? imageLinks;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Book(id: $id)';
+    return 'Book(title: $title, authors: $authors, description: $description, imageLinks: $imageLinks)';
   }
 
   @override
@@ -108,7 +183,10 @@ class _$_Book with DiagnosticableTreeMixin implements _Book {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'Book'))
-      ..add(DiagnosticsProperty('id', id));
+      ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('authors', authors))
+      ..add(DiagnosticsProperty('description', description))
+      ..add(DiagnosticsProperty('imageLinks', imageLinks));
   }
 
   @override
@@ -116,12 +194,18 @@ class _$_Book with DiagnosticableTreeMixin implements _Book {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Book &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.title, title) || other.title == title) &&
+            const DeepCollectionEquality().equals(other._authors, _authors) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.imageLinks, imageLinks) ||
+                other.imageLinks == imageLinks));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id);
+  int get hashCode => Object.hash(runtimeType, title,
+      const DeepCollectionEquality().hash(_authors), description, imageLinks);
 
   @JsonKey(ignore: true)
   @override
@@ -138,12 +222,22 @@ class _$_Book with DiagnosticableTreeMixin implements _Book {
 }
 
 abstract class _Book implements Book {
-  const factory _Book({required final String id}) = _$_Book;
+  const factory _Book(
+      {required final String title,
+      required final List<String> authors,
+      final String? description,
+      final ImageLinks? imageLinks}) = _$_Book;
 
   factory _Book.fromJson(Map<String, dynamic> json) = _$_Book.fromJson;
 
   @override
-  String get id;
+  String get title;
+  @override
+  List<String> get authors;
+  @override
+  String? get description;
+  @override
+  ImageLinks? get imageLinks;
   @override
   @JsonKey(ignore: true)
   _$$_BookCopyWith<_$_Book> get copyWith => throw _privateConstructorUsedError;

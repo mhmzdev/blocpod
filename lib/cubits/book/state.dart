@@ -2,7 +2,7 @@ part of 'cubit.dart';
 
 @immutable
 class BookState extends Equatable {
-  final Book? data;
+  final List<Book>? data;
   final String? message;
 
   const BookState({
@@ -24,7 +24,7 @@ class BookFetchLoading extends BookState {
 
 @immutable
 class BookFetchSuccess extends BookState {
-  const BookFetchSuccess({required Book data}) : super(data: data);
+  const BookFetchSuccess({required List<Book> data}) : super(data: data);
 }
 
 @immutable

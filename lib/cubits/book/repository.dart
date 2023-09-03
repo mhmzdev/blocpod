@@ -1,5 +1,6 @@
 part of 'cubit.dart';
 
 class _BookRepository {
-  Future<Book> fetch() => _BookProvider.fetch();
+  Future<List<Book>> fetch({String genreType = 'computer'}) =>
+      _BookProvider.fetch(genreType: genreType);
 }
